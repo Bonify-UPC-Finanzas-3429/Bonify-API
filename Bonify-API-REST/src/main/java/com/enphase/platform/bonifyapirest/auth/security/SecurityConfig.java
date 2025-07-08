@@ -25,7 +25,15 @@ public class SecurityConfig {
                 .csrf(csrf -> csrf.disable())
                 .sessionManagement(sess -> sess.sessionCreationPolicy(SessionCreationPolicy.STATELESS))
                 .authorizeHttpRequests(auth -> auth
-                        .requestMatchers("/authentication/**").permitAll()
+                        .requestMatchers(
+                                "/authentication/**",        // login, registro, etc.
+                                "/swagger-ui/**",            // Swagger UI
+                                "/v3/api-docs/**",           // OpenAPI docs
+                                "/swagger-resources/**",     // Swagger resources
+                                "/webjars/**",               // Recursos estáticos (JS/CSS)
+                                "/swagger-ui.html",          // Compatibilidad
+                                "/v3/api-docs.yaml"          // YAML si lo usas
+                        ).permitAll()
                         .anyRequest().authenticated()
                 )
                 .addFilterBefore(jwtFilter, UsernamePasswordAuthenticationFilter.class);
