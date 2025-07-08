@@ -3,12 +3,13 @@ package com.enphase.platform.bonifyapirest.bond.controller;
 import com.enphase.platform.bonifyapirest.bond.dto.BondRequestDTO;
 import com.enphase.platform.bonifyapirest.bond.dto.BondResponseDTO;
 import com.enphase.platform.bonifyapirest.bond.service.BondService;
+import io.swagger.v3.oas.annotations.tags.Tag;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
-
+@Tag(name = "Bond", description = "Controller Endpoints")
 @RestController
 @RequestMapping("/bonds")
 @RequiredArgsConstructor

@@ -32,7 +32,8 @@ public class SecurityConfig {
                                 "/swagger-resources/**",     // Swagger resources
                                 "/webjars/**",               // Recursos estáticos (JS/CSS)
                                 "/swagger-ui.html",          // Compatibilidad
-                                "/v3/api-docs.yaml"          // YAML si lo usas
+                                "/v3/api-docs.yaml",          // YAML si lo usas
+                                "/users/email**"
                         ).permitAll()
                         .anyRequest().authenticated()
                 )

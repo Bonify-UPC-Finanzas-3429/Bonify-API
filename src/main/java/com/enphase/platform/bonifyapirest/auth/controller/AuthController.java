@@ -2,10 +2,11 @@ package com.enphase.platform.bonifyapirest.auth.controller;
 
 import com.enphase.platform.bonifyapirest.auth.dto.*;
 import com.enphase.platform.bonifyapirest.auth.service.AuthService;
+import io.swagger.v3.oas.annotations.tags.Tag;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
-
+@Tag(name = "Authentication", description = "Authentication Endpoints")
 @RestController
 @RequestMapping("/authentication")
 @RequiredArgsConstructor

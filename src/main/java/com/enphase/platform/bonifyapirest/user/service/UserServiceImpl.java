@@ -21,7 +21,12 @@ public class UserServiceImpl implements UserService {
                 .map(this::toDTO)
                 .toList();
     }
-
+    @Override
+    public UserProfileDTO getUserByEmail(String email) {
+        var profile = repository.findByEmail(email)
+                .orElseThrow(() -> new ResourceNotFoundException("Usuario no encontrado con email: " + email));
+        return toDTO(profile);
+    }
     @Override
     public UserProfileDTO getUserById(Long id) {
         var profile = repository.findById(id)
