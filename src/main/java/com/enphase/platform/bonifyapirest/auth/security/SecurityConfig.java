@@ -26,7 +26,7 @@ public class SecurityConfig {
     public SecurityFilterChain filterChain(HttpSecurity http) throws Exception {
         http.cors(cors -> cors.configurationSource(o -> {
                     CorsConfiguration config = new CorsConfiguration();
-                    config.addAllowedOrigin("https://bonify-app.netlify.app");
+                    config.setAllowedOrigins(List.of("http://localhost:4200", "https://bonify-app.netlify.app")); // o "*"
                     config.setAllowedMethods(List.of("GET", "POST", "PUT", "DELETE", "OPTIONS"));
                     config.setAllowedHeaders(List.of("*"));
                     config.setAllowCredentials(true);
@@ -51,6 +51,7 @@ public class SecurityConfig {
 
         return http.build();
     }
+
     @Bean
     public PasswordEncoder passwordEncoder() {
         return new BCryptPasswordEncoder();
